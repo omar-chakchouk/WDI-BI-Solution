@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    
+</head>
+
+<body>
+    <form method="post" action="{% url 'chart' %}">
+        {% csrf_token %}
+        <label for="AgriculturalEmployment">Agricultural Employment:</label>
+        <input type="text" name="AgriculturalEmployment" id="AgriculturalEmployment"><br>
+      
+        <label for="RuralPopulation">Rural Population:</label>
+        <input type="text" name="RuralPopulation" id="RuralPopulation"><br>
+      
+        <label for="UseSafelyDrinkingWater">Safe Drinking Water:</label>
+        <input type="text" name="UseSafelyDrinkingWater" id="UseSafelyDrinkingWater"><br>
+      
+        <label for="UseSafelySanitationServices">Safe Sanitation Services:</label>
+        <input type="text" name="UseSafelySanitationServices" id="UseSafelySanitationServices"><br>
+      
+        <label for="UrbanPopLivinginSlums">Urban Population Living in Slums:</label>
+        <input type="text" name="UrbanPopLivinginSlums" id="UrbanPopLivinginSlums"><br>
+      
+        <label for="InternetUse">Internet Use:</label>
+        <input type="text" name="InternetUse" id="InternetUse"><br>
+      
+        <input type="submit" value="Predict">
+      </form>
+      
+      {% if prediction %}
+    {% if prediction  > 0 %}
+        <p>Innovated</p>
+    {% else %}
+        <p>Not innovated</p>
+    {% endif %}
+{% else %}
+    <p>Score has not been calculated yet.</p>
+{% endif %}
+      
+      
+
+   
+</body>
+
+</html>
